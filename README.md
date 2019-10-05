@@ -86,10 +86,19 @@ if let height = userOneHeight , let name = userOneName , let age = userOneAge {
 
 b. Given the variables `userTwoName`, `userTwoAge` and `userTwoHeight` below, write code that prints "Hello user!  You are 15 years old and I don't know how tall you are".  Use optional binding
 
+# Answer
 ```swift
 var userTwoName: String? = nil
 var userTwoAge: Int? = 15
 var userTwoHeight: Double? = nil
+
+if let age = userTwoAge {
+    if userTwoName == nil && userTwoHeight == nil {
+        let name = "user"
+        let height = "I don't know how tall you are"
+        print("Hello \(name)! You are \(age) years old and \(height)")
+    }
+}
 ```
 
 
@@ -99,8 +108,15 @@ Give the variable `favoriteNumber`, write code that either prints "Your favorite
 
 `favoriteNumber` is of type Int? and will either be `nil` or a random number between 0 and 10.  It will change each time you run your Playground.
 
+# Answer
 ```swift
 var favoriteNumber = Bool.random() ? Int.random(in: 0...10) : nil
+
+if favoriteNumber == nil {
+    print("I don't know what your favorite number is")
+} else {
+    print("Your favorite number is \(favoriteNumber!)")
+}
 ```
 
 
