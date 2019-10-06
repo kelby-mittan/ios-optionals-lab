@@ -125,15 +125,33 @@ if favoriteNumber == nil {
 
 Given the variables `numOne`, `numTwo` and `numThree`, write code that prints "The sum of all the numbers is " followed by their sum.  If a number is `nil`, don't add it to the sum.  If all numbers are `nil`, the sum is zero.
 
+# Answer
 ```swift
 var numOne = Bool.random() ? Int.random(in: 0...10) : nil
 var numTwo = Bool.random() ? Int.random(in: 0...10) : nil
 var numThree = Bool.random() ? Int.random(in: 0...10) : nil
+
+if numOne == nil {
+    numOne = 0
+}
+if numTwo == nil {
+    numTwo = 0
+}
+if numThree == nil {
+    numThree = 0
+}
+if numOne == nil && numTwo == nil && numThree == nil {
+    print("The sum is 0")
+} else {
+    print("The sum of all the numbers is \(numOne! + numTwo! + numThree!)")
+}
 ```
 
 ## Question 6
 
 a. Given the variable `numbers` below, write code that prints "The sum of all the numbers is " followed by their sum.  If a number is `nil`, don't add it to the sum.  If all numbers are `nil`, the sum is zero.
+
+# Answer
 
 ```swift
 var numbers = [Int?]()
@@ -141,6 +159,14 @@ var numbers = [Int?]()
 for _ in 0..<10 {
     numbers.append(Bool.random() ? Int.random(in: 0...100) : nil)
 }
+for number in numbers {
+    guard let number = number else {
+        continue
+    }
+    print(number, terminator: ", ")
+}
+print()
+print(numbers)
 ```
 
 b. Using the same variable, find the average of all non-nil values.
