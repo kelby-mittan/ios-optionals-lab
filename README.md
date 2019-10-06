@@ -159,14 +159,6 @@ var numbers = [Int?]()
 for _ in 0..<10 {
     numbers.append(Bool.random() ? Int.random(in: 0...100) : nil)
 }
-var numbers = [Int?]()
-
-for _ in 0..<10 {
-    numbers.append(Bool.random() ? Int.random(in: 0...100) : nil)
-}
-print()
-print(numbers)
-
 let noNilArray = numbers.compactMap { $0 }
 
 print(noNilArray)
