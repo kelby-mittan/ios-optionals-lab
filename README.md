@@ -159,21 +159,27 @@ var numbers = [Int?]()
 for _ in 0..<10 {
     numbers.append(Bool.random() ? Int.random(in: 0...100) : nil)
 }
-let noNilArray = numbers.compactMap { $0 }
+print()
+print(numbers)
+var noNilSum = 0
+var numCount = 0
 
-print(noNilArray)
-let arraySum = noNilArray.reduce(0, { x, y in x + y } )
-
-print("The sum of all the numbers is \(arraySum)")
+for currentNum in numbers {
+    // optional binding
+    if let validNum = currentNum { // optional binding to unwrap the current num
+        noNilSum += validNum
+        numCount += 1
+    }
+}
+let noNilAvg = noNilSum / numCount
+print(noNilSum)
+print(noNilAvg)
 ```
 
 b. Using the same variable, find the average of all non-nil values.
 # Answer
-```swift
-let numCount = noNilArray.count
-let arrayAvg = Float( Double(arraySum) / Double(numCount) )
-print("The average of the array is \(arrayAvg)")
-```
+## is in part a
+
 ## Extra Questions
 
 https://github.com/joinpursuit/Pursuit-Core-iOS-Extra-Optionals-Questions/blob/master/README.md
